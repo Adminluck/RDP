@@ -3,8 +3,7 @@ printf "Installing RDP Be Patient... " >&2
 {
 sudo useradd -m Admin
 sudo adduser Admin sudo
-echo 'Admin:8426' | sudo chpasswd
-sed -i 's/\/bin\/sh/\/bin\/bash/g' /etc/passwd
+echo 'Admin'
 sudo apt-get update
 wget https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
 sudo dpkg --install chrome-remote-desktop_current_amd64.deb
@@ -17,9 +16,7 @@ sudo systemctl disable lightdm.service
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo dpkg --install google-chrome-stable_current_amd64.deb
 sudo apt install --assume-yes --fix-broken
-wget https://repo.nordvpn.com/deb/nordvpn/debian/pool/main/nordvpn-release_1.0.0_all.deb
-sudo dpkg --install nordvpn-release_1.0.0_all.deb
-sudo apt install --assume-yes
+sh <(wget -qO - https://downloads.nordcdn.com/apps/linux/install.sh)
 sudo apt install nautilus nano -y
 sudo adduser Admin chrome-remote-desktop
 } &> /dev/null &&
