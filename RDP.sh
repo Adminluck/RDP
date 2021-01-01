@@ -17,7 +17,10 @@ sudo systemctl disable lightdm.service
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo dpkg --install google-chrome-stable_current_amd64.deb
 sudo apt install --assume-yes --fix-broken
-sh <(wget -qO - https://downloads.nordcdn.com/apps/linux/install.sh)
+wget https://repo.nordvpn.com/deb/nordvpn/debian/pool/main/nordvpn-release_1.0.0_all.deb
+sudo apt-get install nordvpn-release_1.0.0_all.deb -y
+sudo apt-get update
+sudo apt-get install nordvpn
 sudo apt install nautilus nano -y
 sudo adduser Admin chrome-remote-desktop
 } &> /dev/null &&
